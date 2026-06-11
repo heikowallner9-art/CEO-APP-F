@@ -2,13 +2,17 @@
   "id": "/",
   "name": "AI CEO Executive Command Center",
   "short_name": "AI CEO",
-  "description": "Premium Microsoft Store Executive Command Center - Bloomberg & Windows 11 Fluent Glassmorphism Dashboard.",
+  "description": "Premium Microsoft Store Executive Command Center - Bloomberg &amp; Windows 11 Fluent Glassmorphism Dashboard.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#000000",
   "theme_color": "#D4AF37",
-  "categories": ["business", "productivity", "utilities"],
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
   "lang": "en-US",
   "dir": "ltr",
   "prefer_related_applications": false,
@@ -40,14 +44,14 @@
   ],
   "screenshots": [
     {
-      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=800&q=80",
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;h=800&amp;q=80",
       "sizes": "1200x800",
       "type": "image/jpeg",
       "form_factor": "wide",
       "label": "AI Executive Command Center Dashboard on Windows 11 Desktop"
     },
     {
-      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=640&h=1136&q=80",
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=640&amp;h=1136&amp;q=80",
       "sizes": "640x1136",
       "type": "image/jpeg",
       "form_factor": "narrow",
