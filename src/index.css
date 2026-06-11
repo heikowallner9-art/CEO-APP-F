@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-gold-light: #F3E5AB;
+  --color-gold: #D4AF37;
+  --color-gold-dark: #AA7C11;
+}
+
+@layer utilities {
+  .neon-gold-glow {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.05);
+  }
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #FFF 0%, #F3E5AB 45%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass-premium {
+    background: rgba(10, 10, 10, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+  }
+  .glass-premium-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-premium-hover:hover {
+    background: rgba(20, 18, 15, 0.75);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+/* Custom gorgeous animations */
+@keyframes gold-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.55), 0 0 45px rgba(212, 175, 55, 0.2);
+  }
+}
+
+.gold-pulse-effect {
+  animation: gold-pulse 3s infinite ease-in-out;
+}
+
+/* Scrollbar customization for extreme windows fluent aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+

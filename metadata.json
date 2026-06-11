@@ -1,0 +1,6 @@
+{
+  "name": "AI CEO",
+  "description": "Executive Command Center Dashboard with luxury black and gold aesthetic, Fluent Design, and built-in AI executive advisor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
