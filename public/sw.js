@@ -1,15 +1,23 @@
-const CACHE_NAME = 'ai-ceo-cache-v2';
+const CACHE_NAME = 'ai-ceo-cache-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/manifest.json'
+  '/manifest.json',
+  '/icons/icon-72.png',
+  '/icons/icon-96.png',
+  '/icons/icon-128.png',
+  '/icons/icon-144.png',
+  '/icons/icon-152.png',
+  '/icons/icon-192.png',
+  '/icons/icon-384.png',
+  '/icons/icon-512.png',
+  '/screenshots/screenshot-wide.png',
+  '/screenshots/screenshot-narrow.png'
 ];
 
-// Install Event
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      // Use allSettled so if any single file fails to download, the PWA installation stream doesn't halt.
       return Promise.allSettled(
         ASSETS_TO_CACHE.map((url) => {
           return cache.add(url).catch((err) => {
@@ -21,7 +29,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activate Event
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -34,18 +41,14 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch Event (Network-First approach falling back to Cache)
 self.addEventListener('fetch', (event) => {
-  // Only handle standard GET requests and skip internal extensions/websockets
   if (event.request.method !== 'GET') return;
-  
   const url = new URL(event.request.url);
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
 
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        // Cache successful responses from our own origin
         if (response && response.status === 200 && response.type === 'basic') {
           const responseToCache = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -55,13 +58,9 @@ self.addEventListener('fetch', (event) => {
         return response;
       })
       .catch(() => {
-        // Fallback to Cache when offline
         return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // Ultimate fallback to index
-          return caches.match('/');
+          if (cachedResponse) return cachedResponse;
+          if (event.request.mode === 'navigate') return caches.match('/');
         });
       })
   );
